@@ -5,5 +5,8 @@
 
     <string name="card_number">Введите номер карты</string>
     <string name="sum">Введите сумму</string>
+    
+    <string name="sent_message">Отправить сообщение</string>
+    <string name="message">Привет! Скидываемся по %1$s рублей на карту %2$s</string>
 
 </resources>

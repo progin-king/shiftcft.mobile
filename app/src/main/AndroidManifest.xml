@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity"/>
-        <activity android:name=".AddresBookActivity" />
+        <activity android:name=".AddresBookActivity"/>
+        <activity android:name=".SMSActivity"/>
     </application>
 
 </manifest>

@@ -1,13 +1,20 @@
 package com.example.ivan.myapplication;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.ContactsContract;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -21,6 +28,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -32,6 +40,7 @@ public class AddresBookActivity extends AppCompatActivity
     private static final String HAS_PHONE_NUMBER = ContactsContract.Contacts.HAS_PHONE_NUMBER;
     private static final String PHONE_NUMBER = ContactsContract.CommonDataKinds.Phone.NUMBER;
     private static final String PHONE_CONTACT_ID = ContactsContract.CommonDataKinds.Phone.CONTACT_ID;
+    private static final int PERMISSION_REQUEST_CODE = 12;
 
     private List<Contact> contacts = new ArrayList<>();
     private RVAdapter adapter;
@@ -48,21 +57,18 @@ public class AddresBookActivity extends AppCompatActivity
         LinearLayoutManager llm = new LinearLayoutManager(this);
         rv.setLayoutManager(llm);
 
-        ContentResolver cr = this.getContentResolver();
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
+            == PackageManager.PERMISSION_GRANTED)
+            contacts = getAll(AddresBookActivity.this);
+        else
+            ActivityCompat.requestPermissions(this,
+                    new String[]{
+                            Manifest.permission.READ_CONTACTS,
+                    },
+                    PERMISSION_REQUEST_CODE);
 
-        Cursor pCur = cr.query(
-                ContactsContract.CommonDataKinds.Phone.CONTENT_URI,
-                new String[]{PHONE_NUMBER, PHONE_CONTACT_ID, DISPLAY_NAME, HAS_PHONE_NUMBER},
-                null,
-                null,
-                null
-        );
-        pCur.close();
-//        contacts = getAll(AddresBookActivity.this);
         adapter = new RVAdapter(contacts);
         rv.setAdapter(adapter);
-
-
 
     }
 
@@ -168,5 +174,19 @@ public class AddresBookActivity extends AppCompatActivity
         {
             super.onAttachedToRecyclerView(recyclerView);
         }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
+                                       @NonNull int[] grantResults)
+    {
+        if (requestCode == PERMISSION_REQUEST_CODE && grantResults.length == 1)
+        {
+            if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
+            {
+                contacts = getAll(this);
+            }
+        }
+     super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

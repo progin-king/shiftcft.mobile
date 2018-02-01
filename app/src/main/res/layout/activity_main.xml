@@ -85,30 +85,13 @@
         android:maxLength="4"
         android:layout_marginRight="32dp"
         android:layout_marginTop="8dp"
+        android:ems="10"
+        android:inputType="number"
         app:layout_constraintBottom_toTopOf="@+id/button"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bas_text"
         app:layout_constraintStart_toEndOf="@id/editText5"
         app:layout_constraintVertical_bias="0" />
-
-    <!--<EditText-->
-    <!--android:id="@+id/editText6"-->
-    <!--android:layout_width="@dimen/edit_width"-->
-    <!--android:layout_height="@dimen/edit_height"-->
-    <!--android:layout_marginBottom="@dimen/margin_bottom"-->
-    <!--android:layout_marginEnd="24dp"-->
-    <!--android:layout_marginLeft="@dimen/margit_start"-->
-
-    <!--android:layout_marginRight="@dimen/margit_end"-->
-    <!--android:layout_marginTop="@dimen/margin_top"-->
-    <!--android:ems="10"-->
-    <!--android:inputType="number"-->
-    <!--app:layout_constraintBottom_toTopOf="@+id/button"-->
-    <!--app:layout_constraintEnd_toEndOf="parent"-->
-    <!--app:layout_constraintLeft_toLeftOf="@+id/editText5"-->
-    <!--app:layout_constraintRight_toRightOf="parent"-->
-    <!--app:layout_constraintTop_toBottomOf="@+id/textView"-->
-    <!--app:layout_constraintVertical_bias="0.0" />-->
 
     <EditText
         android:id="@+id/editText4"
