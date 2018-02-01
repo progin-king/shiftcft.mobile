@@ -31,10 +31,12 @@ public class MainActivity extends AppCompatActivity
     {
         String str = editTextCard1.getText().toString() + " " + editTextCard2.getText().toString()
                 + " " + editTextCard3.getText().toString() + " " + editTextCard4.getText().toString();
-        Intent intent = new Intent(this, SMSActivity.class);
-        intent.putExtra("Cart Number", str);
-        intent.putExtra("Sum", editTextSum.getText().toString());
+
         Intent intentForSMS = new Intent(this, SMSActivity.class);
+        intentForSMS.putExtra("Cart Number", str);
+        intentForSMS.putExtra("Sum", editTextSum.getText().toString());
+        startActivity(intentForSMS);
+        Intent intent = new Intent(this, AddressBookActivity.class);
         startActivity(intent);
     }
 }

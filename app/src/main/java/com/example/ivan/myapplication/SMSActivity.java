@@ -17,7 +17,7 @@ public class SMSActivity extends AppCompatActivity
         Intent intent = getIntent();
         //Поделить сумму на количество выбранных людей!!!
 
-        String text = getString(R.string.message, intent.getStringExtra("Sum"),intent.getStringExtra("Cart Number"));
+        String text = getString(R.string.message, intent.getStringExtra("_name"),intent.getStringExtra("Sum"),intent.getStringExtra("Cart Number"));
         final EditText editText = (EditText)findViewById(R.id.message);
         editText.setText(text);
 

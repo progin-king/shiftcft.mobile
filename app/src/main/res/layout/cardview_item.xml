@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent"
-    android:padding="16dp"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="4dp"
     >
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/cv"
+        card_view:cardCornerRadius="3dp"
+        card_view:cardBackgroundColor="@color/colorPrimary"
         >
         <RelativeLayout
             android:layout_width="match_parent"
@@ -19,16 +26,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_toEndOf="@+id/contact_phone"
-                android:layout_toRightOf="@+id/contact_phone"
-                android:layout_marginBottom="10dp"
-                android:textSize="15sp" />
+                android:textSize="20dp" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_below="@id/contact_name"
                 android:id="@+id/contact_phone"
-                android:layout_toRightOf="@+id/rv"
                 />
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"/>
+
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </LinearLayout>
