@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">По сотке сдаем!</string>
+
+    <string name="give_me_my_many">Собрать деньги</string>
+
+    <string name="card_number">Введите номер карты</string>
+    <string name="sum">Введите сумму</string>
+
+</resources>
