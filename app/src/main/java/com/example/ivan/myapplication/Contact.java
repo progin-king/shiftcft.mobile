@@ -1,10 +1,13 @@
 package com.example.ivan.myapplication;
 
-public class Contact
+import java.io.Serializable;
+
+public class Contact implements Serializable
 {
     private String _name = "";
     private String _phone = "";
     private int _my_id;
+    private boolean check = false;
 
     public void setName(String name) {
         _name = name;
@@ -18,6 +21,14 @@ public class Contact
         _my_id = my_id;
     }
 
+    public void setCheck(boolean check) {
+        this.check = check;
+    }
+
+    public boolean isCheck() {
+        return check;
+    }
+
     public int get_my_id() {
         return _my_id;
     }
@@ -29,6 +40,7 @@ public class Contact
     public String get_phone() {
         return _phone;
     }
+
     public String getall()
     {
         return _my_id + _name + _phone;
