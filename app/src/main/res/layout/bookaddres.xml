@@ -7,10 +7,11 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/rv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rv"
         app:layout_constraintBottom_toTopOf="@id/butOnAddress"
+        app:layout_constraintTop_toTopOf="parent"
     />
 
     <Button

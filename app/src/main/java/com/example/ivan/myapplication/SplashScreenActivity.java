@@ -2,6 +2,7 @@ package com.example.ivan.myapplication;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -14,8 +15,20 @@ public class SplashScreenActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
 
-        Intent instant = new Intent(this, MainActivity.class);
-        startActivity(instant);
-        finish();
+        SharedPreferences preferences = getSharedPreferences(MainActivity.getAppPreferences(), MODE_PRIVATE);
+        String str = preferences.getString(AddressBookActivity.getAPP_PREFERENCES_Contact(), "");
+
+        if (str.equals(""))
+        {
+            Intent instant = new Intent(this, MainActivity.class);
+            startActivity(instant);
+            finish();
+        }
+        else
+        {
+            Intent instant = new Intent(this, DebtorsActivity.class);
+            startActivity(instant);
+            finish();
+        }
     }
 }
